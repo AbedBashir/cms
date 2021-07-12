@@ -139,7 +139,7 @@
                         <a href="./posts.php">View Posts</a>
                     </li>
                     <li>
-                        <a href="#">Add Posts</a>
+                        <a href="./includes/add_posts.php">Add Posts</a>
                     </li>
                 </ul>
             </li>
