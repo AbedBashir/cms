@@ -22,8 +22,8 @@ $select_posts_by_id = mysqli_query($connection , $query);
     if(isset($_POST['update_post'])) {
 
 
-        $post_author         =  $_POST['post_author'];
-        $post_title          =  $_POST['post_title'];
+        $post_author         =  $_POST['author'];
+        $post_title          =  $_POST['title'];
         $post_category_id    =  $_POST['post_category'];
         $post_status         =  $_POST['post_status'];
         $post_image          =  $_FILES['image']['name'];
@@ -64,7 +64,7 @@ $select_posts_by_id = mysqli_query($connection , $query);
 
         confirmQuery($update_post);
 
-        echo "<p class='bg-success'>Post Updated. <a href='../posts.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></p>";
+        echo "<p class='bg-success'>Post Updated. <a href='../post.php?p_id={$the_post_id}'>View Post </a> or <a href='posts.php'>Edit More Posts</a></p>";
 
 
 
@@ -86,9 +86,9 @@ $select_posts_by_id = mysqli_query($connection , $query);
 
      <div class="form-group">
        <label for="categories">Categories</label><br>
-      <select class="" name="">
+      <select class="" name="post_category">
         <?php
-        $query = "SELECT * FROM categories ";
+        $query = "SELECT * FROM categories";
         $select_categories = mysqli_query($connection,$query);
 
         confirmQuery($select_categories);
@@ -138,7 +138,7 @@ $select_posts_by_id = mysqli_query($connection , $query);
      </div>
 
       <div class="form-group">
-         <input class="btn btn-primary" type="submit" name="create_post" value="Publish Post">
+         <input class="btn btn-primary" type="submit" name="update_post" value="Publish Post">
      </div>
 
 
