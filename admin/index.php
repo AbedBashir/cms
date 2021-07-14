@@ -151,6 +151,26 @@
          </div>
 
 
+         <?php
+         $query ="SELECT * FROM posts WHERE post_status ='draft' ";
+         $draft_posts_query = mysqli_query($connection,$query);
+         $draft_posts_counts = mysqli_num_rows($draft_posts_query);
+
+         $query ="SELECT * FROM users WHERE user_role ='subscriber' ";
+         $subscriber_user_query = mysqli_query($connection,$query);
+         $subscriber_user_counts = mysqli_num_rows($subscriber_user_query);
+
+         $query ="SELECT * FROM comments WHERE comment_status ='approved' ";
+         $approved_comments_query = mysqli_query($connection,$query);
+         $approved_comments_counts = mysqli_num_rows($approved_comments_query);
+
+
+         ?>
+
+
+
+
+
          <div class="row">
            <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
@@ -162,16 +182,12 @@
 
 
           <?php
-           $element_text =['Active Posts' , 'Categories' , 'Users' , 'Comments'];
-           $element_count =[$post_counts , $categories_counts , $users_counts , $comment_counts];
+           $element_text =['Active Posts' , 'Draft Posts' , 'Categories' , 'Users' , 'Subscriber User' , 'Comments' , 'approved Comments'];
+           $element_count =[$post_counts , $draft_posts_counts , $categories_counts, $users_counts , $subscriber_user_counts , $comment_counts , $approved_comments_counts];
 
-           for ($i=0 ; $i < 4 ; $i++) {
+           for ($i=0 ; $i < 7 ; $i++) {
              echo "['{$element_text[$i]}'" . "," . "{$element_count[$i]}],";
            }
-
-
-
-
           ?>
         ]);
 
@@ -188,7 +204,7 @@
       }
     </script>
 
-      <div id="columnchart_material" style="width: 'auto'; height: 700px;"></div>
+      <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
 
            </div>
 
