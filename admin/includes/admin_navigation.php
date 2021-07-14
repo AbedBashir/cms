@@ -150,10 +150,10 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#users"><i class="fa fa-user"></i>  Users <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="users" class="collapse">
                     <li>
-                        <a href="#">View Users</a>
+                        <a href="users.php">View Users</a>
                     </li>
                     <li>
-                        <a href="#">Manage Users</a>
+                        <a href="users.php?source=add_user">Add Users</a>
                     </li>
                 </ul>
             </li>
