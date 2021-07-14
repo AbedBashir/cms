@@ -61,8 +61,7 @@
                                 // }
 
 
-
-                                echo "<td>$user_image</td>";
+                                echo "<td><img class='img-responsive'  src='../images/$user_image' alt ='image' width='100'></td>";
                                 echo "<td>$user_role</td>";
                                 echo "<td>$user_date</td>";
 
