@@ -24,6 +24,8 @@ if (isset($_POST['create_post'])) {
   $create_post_query = mysqli_query($connection, $query);
 
   confirmQuery($create_post_query);
+  echo "<p class='bg-success'>Post Created</p>";
+
 
   // $the_post_id = mysqli_insert_id($connection);
 
@@ -92,7 +94,7 @@ if (isset($_POST['create_post'])) {
 
       <div class="form-group">
          <label for="post_content">Post Content</label>
-         <textarea class="form-control "name="post_content" id="" cols="30" rows="10">
+         <textarea class="form-control "name="post_content" id="body" cols="30" rows="10">
          </textarea>
       </div>
 
@@ -102,3 +104,11 @@ if (isset($_POST['create_post'])) {
 
 
 </form>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

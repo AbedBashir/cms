@@ -27,6 +27,8 @@ if (isset($_POST['create_user'])) {
 
   $the_post_id = mysqli_insert_id($connection);
 
+  echo "<p class='bg-success'>User Created</p>";
+
 
 }
 
