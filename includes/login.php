@@ -23,8 +23,11 @@ if (isset($_POST['user_login'])) {
   $db_user_firstname      = $row['user_firstname'];
   $db_user_lastname       = $row['user_lastname'];
   $db_user_role           = $row['user_role'];
+  $user_password = crypt($user_password, $db_user_password);
 
 }
+
+
   if ($user_username !== $db_user_username && $user_password !== $db_user_password) {
     header("Location: ../index.php");
   }else if ($user_username == $db_user_username && $user_password == $db_user_password) {

@@ -79,7 +79,7 @@ echo "<p class='bg-success'>User Updated</p>";
       <div class="form-group">
         <label for="user_role">User Role</label><br>
        <select class="" name="user_role">
-         <option value="subscriber"><?php echo $user_role ?></option>
+         <option value="<?php echo $user_role ?>"><?php echo $user_role ?></option>
 
          <?php
          if ($user_role =='admin') {
