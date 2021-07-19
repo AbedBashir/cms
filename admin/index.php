@@ -4,10 +4,10 @@
 
 
         <!-- Navigation -->
-
+ 
         <?php include "includes/admin_navigation.php" ?>
-
-
+        
+   
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -15,31 +15,49 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-
-
+                       
+                       
                         <h1 class="page-header">
                             Welcome to admin
+                            
+                            
+                            <small> <?php 
+
+                            if(isset($_SESSION['username'])) {
+
+                            echo $_SESSION['username'];
 
 
-                            <small> <?php echo $_SESSION['user_username']; ?>
 
 
-                          
+                            }
+
+
+                            // if(is_admin($_SESSION['username'])){
+
+                            //     echo " -- is admin too";
+
+                            // } else {
+
+                            //     echo " ---is not";
+
+                            // }
 
 
 
 
-                            </small>
+
+                            ?></small>
                         </h1>
 
 
-
+     
                     </div>
                 </div>
-
+       
                 <!-- /.row -->
-
-
+                
+       
                 <div class="row">
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -49,8 +67,8 @@
                         <i class="fa fa-file-text fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-
-                      <?php
+                      
+                      <?php 
 
                         $query = "SELECT * FROM posts";
                         $select_all_post = mysqli_query($connection,$query);
@@ -83,7 +101,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                      <?php
+                                      <?php 
 
                                     $query = "SELECT * FROM comments";
                                     $select_all_comments = mysqli_query($connection,$query);
@@ -93,7 +111,7 @@
 
                                     ?>
 
-
+           
                                       <div>Comments</div>
                                     </div>
                                 </div>
@@ -116,7 +134,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                       <?php
+                                       <?php 
 
                                         $query = "SELECT * FROM users";
                                         $select_all_users = mysqli_query($connection,$query);
@@ -126,7 +144,7 @@
 
                                         ?>
 
-
+                                       
                                         <div> Users</div>
                                     </div>
                                 </div>
@@ -149,7 +167,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                     <?php
+                                     <?php 
 
                                     $query = "SELECT * FROM categories";
                                     $select_all_categories = mysqli_query($connection,$query);
@@ -174,16 +192,16 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
-
-    <?php
+                
+                
+    <?php 
 
  $query = "SELECT * FROM posts WHERE post_status = 'published' ";
 $select_all_published_posts = mysqli_query($connection,$query);
 $post_published_count = mysqli_num_rows($select_all_published_posts);
+                                     
 
-
-
+                                      
 $query = "SELECT * FROM posts WHERE post_status = 'draft' ";
 $select_all_draft_posts = mysqli_query($connection,$query);
 $post_draft_count = mysqli_num_rows($select_all_draft_posts);
@@ -201,38 +219,38 @@ $subscriber_count = mysqli_num_rows($select_all_subscribers);
 
 
     ?>
-
-
-
-
-
+                
+                
+                
+                
+                    
 
                 <div class="row">
-
+                    
                     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["bar"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Data', 'Count'],
-
+            
             <?php
-
-    $element_text = ['All Posts','Active Posts','Draft Posts', 'Comments','Pending Comments', 'Users','Subscribers', 'Categories'];
+                                      
+    $element_text = ['All Posts','Active Posts','Draft Posts', 'Comments','Pending Comments', 'Users','Subscribers', 'Categories'];       
     $element_count = [$post_count,$post_published_count, $post_draft_count, $comment_count,$unapproved_comment_count, $user_count,$subscriber_count,$category_count];
 
 
     for($i =0;$i < 8; $i++) {
-
+    
         echo "['{$element_text[$i]}'" . "," . "{$element_count[$i]}],";
-
-
-
+     
+    
+    
     }
-
+                                                            
             ?>
-
-
+               
+     
         ]);
 
         var options = {
@@ -247,26 +265,26 @@ $subscriber_count = mysqli_num_rows($select_all_subscribers);
         chart.draw(data, options);
       }
     </script>
-
-
+                   
+                   
   <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
-
-
-
-
-
+                    
+                    
+                    
+                    
+                    
                 </div>
 
-
+  
 
             </div>
             <!-- /.container-fluid -->
 
         </div>
-
-
+        
+    
         <!-- /#page-wrapper -->
-
+        
     <?php include "includes/admin_footer.php" ?>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
@@ -305,3 +323,8 @@ $subscriber_count = mysqli_num_rows($select_all_subscribers);
 
 
         </script>
+
+
+
+
+

@@ -3,28 +3,28 @@
 
 
     <!-- Navigation -->
-
+    
     <?php  include "includes/navigation.php"; ?>
-
-
+    
+ 
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
 
             <!-- Blog Entries Column -->
-
+            
             <div class="col-md-8">
-
+               
                <?php
 
-
+             
 
             if(isset($_POST['submit'])){
-
+                
             $search = $_POST['search'];
-
-
+                
+                
             $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
             $search_query = mysqli_query($connection, $query);
 
@@ -79,38 +79,38 @@
             }
 
 
-
+            
             }
 
 
 ?>
 
+    
 
+                
+                
+                
+                
+                
 
-
-
-
-
-
-
-
-
+              
+    
 
             </div>
-
-
+            
+              
 
             <!-- Blog Sidebar Widgets Column -->
-
-
+            
+            
             <?php include "includes/sidebar.php";?>
-
+             
 
         </div>
         <!-- /.row -->
 
         <hr>
 
-
+   
 
 <?php include "includes/footer.php";?>

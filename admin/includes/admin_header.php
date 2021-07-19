@@ -1,22 +1,42 @@
-<?php include "../includes/db.php"; ?>
-<?php include "function.php" ?>
 <?php ob_start(); ?>
+<?php include "../includes/db.php"; ?>
+<?php include "functions.php"; ?>
+
+
+
 <?php session_start(); ?>
 
+
 <?php
-if (!isset($_SESSION['user_role'])) {
-    header("Location: ../index.php");
+
+
+
+
+if(isset($_SESSION['user_role'])) {
+
+
+
+} else {
+
+header("location: ../index.php");
 
 
 }
 
 
-?>
+
+
+ ?>
+
+
+
+
 
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
 
@@ -43,9 +63,25 @@ if (!isset($_SESSION['user_role'])) {
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="admin/js/scripts.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+
+ <link href="css/styles.css" rel="stylesheet">
+
+
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+
+
+    <!-- Can use this one below as well -->
+<!--   <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script> -->
+
+
+<script src="js/jquery.js"></script>
+
+
+
+
+
 
 </head>
 

@@ -1,4 +1,13 @@
 <?php include "includes/admin_header.php" ?>
+<?php
+
+    if(!is_admin($_SESSION['username'])){
+
+        header("Location: index.php");
+    }
+
+
+ ?>
 
     <div id="wrapper">
 
@@ -33,8 +42,11 @@
                               include "includes/edit_user.php";
                             break;
 
-                            default:
+                            case 'view_user':
                             include "includes/view_all_users.php";
+                            break;
+
+                            default:
                             break;
 
                           }
